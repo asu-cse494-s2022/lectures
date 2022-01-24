@@ -1,12 +1,12 @@
 
-h2 {
+/* h2 {
     text-align:center;
     color:red;
     font-family:sans-serif;
-}
-p {
+} */
+/* p {
     color:darkcyan;
-}
+} */
 
 .contentDiv {
     background-color:springgreen;
@@ -22,7 +22,7 @@ p {
     /* float:left; */
 }
 
-#top {
+/* #top {
     font-size: 18px;
     color: gray;
 }
@@ -46,4 +46,4 @@ p {
 p::selection {
     color: yellow;
     background-color:maroon;
-}
+} */
