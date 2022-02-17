@@ -18,16 +18,15 @@
                 margin-right:20px;
                 margin-bottom:10px;
             }
-            .colorLegend text {
+            /* .colorLegend text {
                 font-size:.9em;
             }
             .colorLegend line{
                 stroke:white;
             }
             .colorLegend .domain {
-                stroke:none;
-                
-            }
+                stroke:none;    
+            } */
         </style>
     </head>
     <body>
@@ -64,10 +63,10 @@
         <svg></svg>
     </body>
     <script>
-        /*
-            2. Get a reference to the SVG and set some layout variables, and create
-               our pokemonData variable (which will set one time in the d3.csv call).
-        */
+        // /*
+        //     2. Get a reference to the SVG and set some layout variables, and create
+        //        our pokemonData variable (which will set one time in the d3.csv call).
+        // */
         const svg = d3.select('svg');
         const width = +svg.style('width').replace('px','');
         const height = +svg.style('height').replace('px','');

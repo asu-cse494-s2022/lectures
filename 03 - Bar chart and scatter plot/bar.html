@@ -34,7 +34,7 @@
         // 3. margin is used for adding "padding" around the bar chart
         const margin = { top:20, bottom: 90, right: 20, left: 160 };
         const innerWidth = width - margin.left - margin.right;
-        const innerHeight = height - margin.top - margin.bottom;
+        const innerHeight = height - margin["top"] - margin.bottom;
         
         // 4. d3.csv does a GET request to the given URL (in this case a local file)
         // Once it's loaded into the "data" object, we use an arrow function
@@ -50,7 +50,7 @@
 
             // 6. Only get the first 10 items in the array.
             data = data.slice(0,10);
-            console.log(data)
+            console.log(data);
 
             // 7. This bit of data wrangling makes it easier to reference the data.
             // You can use your browser's dev tools to see the items and their attributes
@@ -58,7 +58,7 @@
                 d.population = +d["Population (2020)"];
                 d.country = d["Country (or dependency)"];
             });
-            // console.log(data);
+            console.log(data);
 
             // 8. Create the scales for the bar chart.
             // The xScale is a "linear" scale and the yScale is a "band" scale.
@@ -76,19 +76,19 @@
             // 9. Append a 'g' element that's offset by the top and left margins.
             // The commented out line is an example of how to do this using Javascript 'string literals'.
             const g = svg.append('g')
-                        // .attr('transform', `translate(${margin.left}, ${margin.top})`);
-                        .attr('transform', 'translate('+margin.left+', '+margin.top+')');
+                        .attr('transform', `translate(${margin.left}, ${margin.top})`);
+                        // .attr('transform', 'translate('+margin.left+', '+margin.top+')');
 
             // 10. This is what adds the rectangles in our bar chart.
             var barchart = g.selectAll('rect')
                             .data(data)
                             .enter()
-                            .append('rect')
-                            .attr('y', d => yScale(d.country))
-                            .attr('height',yScale.bandwidth())
-                            .attr('width', function(d) {
-                                return  xScale(d.population);
-                            });
+                                .append('rect')
+                                .attr('y', d => yScale(d.country))
+                                .attr('height', yScale.bandwidth())
+                                .attr('width', function(d) {
+                                    return  xScale(d.population);
+                                });
 
             // 11. Add the x-axis and y-axis
             const yAxis = d3.axisLeft(yScale);

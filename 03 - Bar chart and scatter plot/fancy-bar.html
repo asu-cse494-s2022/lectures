@@ -20,7 +20,7 @@
                 font-family:sans-serif;
                 fill:gray;
             }
-            .title {
+             .title {
                 font-family:sans-serif;
                 font-size:1.6em;
                 fill:gray;
@@ -31,7 +31,7 @@
             }
             .tick text {
                 fill: gray;
-            } 
+            }  
         </style>
     </head>
     <body>
@@ -107,17 +107,17 @@
                          .selectAll('.domain, .tick line').remove(); // remove the y-axis line and tick marks using this 'selectAll' command
                        
             const xAxisTickFormat = function(d) { 
-                    // You can use this link to look at d3.format options: 
-                    // http://bl.ocks.org/zanarmstrong/05c1e95bf7aa16c4768e
+        //             // You can use this link to look at d3.format options: 
+        //             // http://bl.ocks.org/zanarmstrong/05c1e95bf7aa16c4768e
                     return d3.format('.3s')(d).replace('G','B') 
             }
             const xAxis = d3.axisBottom(xScale)
                             // make the x-axis labels nicer using a custom tick format function
                             .tickFormat(xAxisTickFormat)
-                            // extend the x-axis tick marks backwards to the top of the chart
+        //                     // extend the x-axis tick marks backwards to the top of the chart
                             .tickSize(-innerHeight);                
             var gXAxis = g.append('g').call(xAxis);
-        //     // remove the x-axis line 
+        // //     // remove the x-axis line 
             gXAxis.selectAll('.domain').remove();                   
             gXAxis.attr('transform',`translate(0,${innerHeight})`)
                             .selectAll("text")                   // If you want to rotate the axis text,

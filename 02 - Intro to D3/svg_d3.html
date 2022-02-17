@@ -7,7 +7,6 @@
         <title>SVG with D3 example</title>
         <!-- You can get access to D3 by referencing the library. -->
         <script src="https://d3js.org/d3.v5.min.js"></script> 
-        <scritp></scritp>
         <style>
             svg {
                 border:1px solid black;
@@ -17,11 +16,11 @@
                 display:block;
                 margin:auto;
             } 
-            svg > circle {
+            /* svg > circle {
                 fill: lightblue;
                 stroke:gray;
                 stroke-width:3px;
-            }           
+            }            */
         </style>
     </head>
     <body>
@@ -35,10 +34,10 @@
         svg.append('circle')
              .attr('cx', 100)
              .attr('cy', 40)
-             .attr('r', 30);
-            //  .style('fill', 'lightblue')
-            //  .style('stroke','gray')
-            //  .style('stroke-width','3px');
+             .attr('r', 30)
+             .style('fill', 'lightblue')
+             .style('stroke','gray')
+             .style('stroke-width','3px');
         
         // Add rectangle 
         svg.append('rect')
