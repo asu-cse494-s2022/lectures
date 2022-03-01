@@ -108,7 +108,7 @@
         // 
 
         // Way 1: Call function with the course-input-1's entered text (value) as an arg
-        // Way 2: Call function and then retrieve #course-input-2's text
+        // // Way 2: Call function and then retrieve #course-input-2's text
         function addClass(value) {
             if(value) {
                 console.log('addClass: Way 1');
@@ -123,7 +123,7 @@
             document.getElementById('clicked-list').appendChild(item);
         }
 
-        // Way 3: Add an event listener to #course-input-3
+        // // Way 3: Add an event listener to #course-input-3
         document.getElementById('course-input-3').addEventListener('change', function(event) {
             console.log('addClass:Way 3');
             addClass(this.value);
@@ -137,11 +137,12 @@
             let value = document.getElementById('course-input-4').value;
             // let value = d3.select('#course-input-4').node().value;
             console.log(value);
+            addClass(value);
         });
 
 
 
-        // D3 selection examples
+        // // D3 selection examples
 
         /*
             d3.select will select the first element that matches the specified selector string.
@@ -176,11 +177,13 @@
             Setting classes using D3 select and classed (set to either true or false)
         */
         document.querySelector('#add-highlights').addEventListener('click', function(event) {
-            d3.select('.col-3').classed('highlighted', true); // select first
-            // d3.selectAll('.col-3').classed('highlighted', true); // select all
+            // d3.select('.col-3').classed('highlighted', true); // select first
+            d3.selectAll('.col-3').classed('highlighted', true); // select all
         });
         document.querySelector('#remove-highlights').addEventListener('click', function(event) {
             d3.selectAll('.col-3').classed('highlighted',false);
+                    // .attr('class','highlighted');
+
         });
 
         /*

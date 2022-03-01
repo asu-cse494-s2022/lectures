@@ -5,7 +5,7 @@
  <!DOCTYPE html>
  <html>
     <head>
-        <title>Bar chart example</title>
+        <title>Line chart examples</title>
         <script src="https://d3js.org/d3.v5.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
         <style>
@@ -67,7 +67,7 @@
             // the date field which is converted to JS Date objects
             // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
             data.forEach(d => {
-                console.log(d)
+                // console.log(d)
                 for(var key in d) {
                     if(key == 'date') {
                         d.date = d3.timeParse('%Y-%m-%d')(d.date);
@@ -114,7 +114,7 @@
                 .call(d3.axisLeft(yScale));
             g.append('g')
                 .attr('transform',`translate(0,${innerHeight})`)
-                .call(d3.axisBottom(xScale))
+                .call(d3.axisBottom(xScale));
                 
             // 8. Create a D3 line generator
             //    .curve(..) applies a smoothing function to the line
@@ -149,7 +149,7 @@
                     .append('circle')
                     .attr('class','singleCircles')      
                     .style('fill','steelblue')
-                    .attr('cx', d => xScale(d.date))
+                    .attr('cx', i => xScale(i.date))
                     .attr('cy', d => yScale(d[attribute]))
                     .attr('r', 2);
             
