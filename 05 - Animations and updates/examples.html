@@ -200,7 +200,7 @@
                 function toggleAnimation() {
                     const currentState = d3.select('#toggle-button').attr('value');
                     const updatedLabel = currentState == 'Start' ? 'Stop' : 'Start';
-                    d3.select('#toggle-button').attr('value', updatedLabel)
+                    d3.select('#toggle-button').attr('value', updatedLabel);
                     circleTransitions();
                 }
 
@@ -283,7 +283,7 @@
                 const svg3 = d3.select('#svg3');
 
                 // This is how we've been adding elements to SVG so far.
-                svg3.selectAll('appendCircles')
+                svg3.selectAll('.appendCircles')
                     .data(animateData)
                     .enter()
                     .append('circle')
@@ -295,7 +295,7 @@
                         .style('fill','lemonchiffon');
 
                 // Instead of using enter, you can also add elements with join
-                svg3.selectAll('joinCircles')
+                svg3.selectAll('.joinCircles')
                     .data(animateData)    
                     .join('circle')
                         .attr('class','appendCircles')
