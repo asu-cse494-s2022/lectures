@@ -119,9 +119,8 @@
                 // interpolation between them may not match human
                 // perception. It's better to map from white/black to a hue.
                 let manualScale1 = d3.scaleLinear()
-                                    .domain(d3.extent(data)) // [1, 20]
+                                    .domain(d3.extent(data))
                                     .range(['lightgreen','darkslateblue']);
-                                    // .range(['white','black']);
 
                 svg.selectAll('.circles-3')
                     .data(data)
@@ -143,8 +142,6 @@
                 let max = d3.max(data);
                 let mean = d3.mean(data);
                 let median = d3.median(data);
-
-                console.log(`mean = ${mean}, median = ${median}`);
                 
                 let manualScale2 = d3.scaleLinear()
                                 .domain([min, mean, max])
@@ -275,7 +272,7 @@
                      .call(d3.axisBottom(xScale))
                      .attr('transform',`translate(0,${histHeight})`);
                 
-                // histogram generator with a defined 
+                // histogarm generator with a defined 
                 // number of uniformly-spaced bins using
                 // xScale.ticks(numberOfBins)
                 let numberOfBins = 20;
@@ -285,7 +282,7 @@
                                     // .thresholds(numberOfBins);
                                     .thresholds(xScale.ticks(numberOfBins));
                 let bins = histogram(histData);
-                console.log(bins);
+
                 
                 // create the y scale/axis
                 let yScale = d3.scaleLinear()
@@ -304,7 +301,7 @@
                      
                 /*
                     D3 density curve example
-                    Similar to a histogram, but uses a smoothed area instead of bars
+                    Simillar to a histogram, but uses a smoothed area instead of bars
 
                     https://www.d3-graph-gallery.com/graph/density_basic.html
                 */
@@ -331,8 +328,8 @@
                 // get the frerquency of values [0-1] scale.
                 let kde = kernelDensityEstimator(kernelEpanechnikov(7), xScale.ticks(numberOfBins));
                 var density =  kde( histData.map( d => d));
-                console.log(density);
-                // // add a start/end point so the fill looks correct
+
+                // add a start/end point so the fill looks correct
                 density.unshift([0,0]);
                 density.push([500, 0]);
                 
@@ -358,8 +355,10 @@
                     .datum(density)
                     .classed('kde-path',true)
                     .style('stroke','black')
-                    // .style('fill','none')
+                    .style('filll','red')
                     .attr('d', kdeLine);
+
+
 
 
 
@@ -374,7 +373,7 @@
                                 .attr('transform',`translate(${svgWidth/2},${1150})`)
                 
                 // create a pie generator and comppute the 
-                // position of each group on the pie
+                // posiition of each group on the pie
                 let pie = d3.pie()
                             .value(d => d);
                 let pieData = pie(data);
@@ -393,7 +392,7 @@
                         // .style('fill', d => seqScale1(d.data))
                         .style('stroke','black');
 
-                // Add the numbers around the outside of the arcs
+                // Add the numbers arorund the outside of the arcs
                 let textArc = d3.arc()
                                 .innerRadius(140)
                                 .outerRadius(140);
@@ -407,8 +406,8 @@
                         .style('text-anchor','middle')
                         .text(d => d.data)
 
-                // // For a nicer version of annotations, see this example
-                // // https://www.d3-graph-gallery.com/graph/donut_label.html
+                // For a nicer version of annotations, see this example
+                // https://www.d3-graph-gallery.com/graph/donut_label.html
 
                 
 

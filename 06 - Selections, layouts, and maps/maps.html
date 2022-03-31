@@ -3,9 +3,7 @@
     <head>
         <title>D3 Map examples</title>
         <script src="https://d3js.org/d3.v5.min.js"></script>
-        <!-- To get more projections, load the geo-projection library
-             Documentation here: https://github.com/d3/d3-geo-projection
-         -->
+        <!-- To get more projections, load the geo-projection library -->
         <script src="https://d3js.org/d3-geo-projection.v3.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
 
@@ -141,9 +139,9 @@
                     
                     // Manually position the projection
                     // projection
-                    //     .scale(geoJsonHeight * .2)                // manual positioning
+                    //     .scale(geoJsonHeight * .25)                // manual positioning
                     //     .center(d3.geoCentroid(worldData))
-                    //     .translate([geoJsonWidth * .55, geoJsonHeight * .35]);
+                    //     .translate([geoJsonWidth * .5, geoJsonHeight * .25]);
 
                     // Responsive design based on the width and height of the svg
                     projection
@@ -333,7 +331,7 @@
                                 drawSelectedState(d.properties.name);
                             });
 
-                    drawLeaflet(); 
+                    drawLeaflet();
                     
                 });
 
@@ -437,9 +435,9 @@
                     - Add data items and other layers on top of the map.
                         https://leafletjs.com/examples.html
                     - Add interactivity if necessary (ie, clicking on data items, etc)
+
             -->
-            
-             <div class='row'>
+            <div class='row'>
                 <div class='col-12'>
                     <h2>Leaflet</h2>
                 </div>
